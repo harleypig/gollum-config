@@ -1,0 +1,4 @@
+#-------------------------------------------------------------------------------
+# Change default markup
+
+Precious::App.set(:default_markup, :asciidoc)
