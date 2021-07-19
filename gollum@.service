@@ -1,0 +1,19 @@
+[Unit]
+Description=a simple wiki system built on top of Git
+Documentation=https://github.com/gollum/gollum
+After=network.target
+
+[Service]
+# %h - users home dir
+# %i - the part between `@` and `.service`
+WorkingDirectory=%h/path/to/wikis/%i
+
+# For some reason, this variable isn't being set, even though it's set in my
+# environment.
+Environment="LANG=en_US.UTF-8"
+
+ExecStart=/home/harleypig/.local/share/gem/ruby/3.0.0/bin/gollum --port $PORT --config config.rb
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
