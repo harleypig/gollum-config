@@ -235,7 +235,7 @@ wiki_options = {
   #},
 
   ##############################################################################
-  # Tips
+  # Tips - these options are not documented, except in passing.
 
   #-----------------------------------------------------------------------------
   # Force table of contents tag ([[_TOC_]]) into each page.

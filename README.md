@@ -49,6 +49,11 @@ options instead of in your systemd file.
 
 `config.rb.set-default-markup` shows how to change gollums default markup.
 
+#### Commit as logged in user
+
+`config.rb.commit-as-login-user` shows how to have commits tagged with the
+logged in user instead of the system user running the process.
+
 ---
 
 ### Configure vimwiki

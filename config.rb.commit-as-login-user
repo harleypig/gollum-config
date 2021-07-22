@@ -1,0 +1,25 @@
+#############################################################################
+# Override commit_message to pull committer info from http headers.
+# This function is defined in lib/gollum/app.rb
+#
+# HTTP_REMOTE_{USER,NAME,EMAIL,GROUPS} are all set by Authelia. Adjust to fit
+# your situation.
+
+module OverrideMyPrecious
+  def commit_message
+    name = request.env['HTTP_REMOTE_NAME']
+    email = request.env['HTTP_REMOTE_EMAIL']
+
+    msg = (params[:message].nil? or params[:message].empty?) ? "[no message]" : params[:message]
+
+    commit_message = {
+      message: msg,
+      name: name,
+      email: email
+    }
+
+    commit_message
+  end
+
+  Precious::App.prepend self
+end
